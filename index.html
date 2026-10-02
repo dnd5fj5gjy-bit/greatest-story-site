@@ -865,7 +865,18 @@ function companionOff(){
 (async () => {
   let sample = null;
   try { sample = window.claude ? await window.claude.use('sample') : null; } catch(e) { sample = null; }
-  if (!sample) { companionOff(); return; }
+  if (!sample) {
+    /* on the hosted site: use the /api/companion route when it is configured */
+    let live = false;
+    try { const p = await fetch('api/companion', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({turns:[]})}); live = p.status === 400; } catch(e) {}
+    if (!live) { companionOff(); return; }
+    sample = async (msgs, opts) => {
+      const r = await fetch('api/companion', {method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({turns: msgs.slice(1)}), signal: opts && opts.signal});
+      if (r.status === 429) throw {code:'rate_limited'};
+      if (!r.ok) throw {code:'upstream_error'};
+      const d = await r.json(); if (opts && opts.onText) opts.onText({text:d.text, delta:d.text}); return {text:d.text};
+    };
+  }
   async function ask(q){
     q = q.trim(); if (!q) return;
     bubble('me', q); $('#askInput').value = ''; $('#suggest').hidden = true;
