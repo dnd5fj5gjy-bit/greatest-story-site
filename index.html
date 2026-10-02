@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The Greatest Story Ever Told: An Eyewitness Account by Bear Grylls. Published by Hodder &amp; Stoughton.">
+<meta name="robots" content="noindex">
+<title>The Greatest Story Ever Told</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Schibsted+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: basalt and limestone, the two stones of Galilee. Dark basalt bands carry the cinema
+   (hero, places, companion); pale limestone bands carry the reading (book, read-along, wholesale).
+   One committed look in every theme. */
+:root{
+  --basalt:#161411; --basalt-2:#211e19; --basalt-3:#2c2822;
+  --lime:#ece4d4; --lime-2:#e1d6c1; --lime-3:#d3c5ab;
+  --ink:#1c1915; --ink-soft:#5b5347; --dust:#a99f8c; --dust-2:#7f7667;
+  --gold:#c9a45c; --gold-deep:#8f6f2e; --madder:#8c2b20; --madder-lit:#b9493a;
+  --display:"Gloock","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --read:"Newsreader","Iowan Old Style",Georgia,serif;
+  --ui:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--basalt);color:var(--lime);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--ui);font-weight:600;font-size:15px;letter-spacing:.01em;border-radius:999px;padding:.85em 1.4em;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-gold{background:var(--gold);color:var(--basalt)}
+.btn-gold:hover{background:#d8b56e}
+.btn-line{border-color:color-mix(in srgb,var(--lime) 45%,transparent);color:var(--lime);background:transparent}
+.btn-line:hover{border-color:var(--lime)}
+.btn-ink{background:var(--ink);color:var(--lime)}
+.btn-ink:hover{background:var(--madder)}
+.btn-ghost-ink{border-color:var(--lime-3);color:var(--ink);background:transparent}
+.btn-ghost-ink:hover{border-color:var(--ink)}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.4vw,72px);line-height:1;letter-spacing:-.015em}
+h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.2vw,28px);line-height:1.15}
+p{margin:0}
+.lede{font-family:var(--read);font-size:clamp(19px,1.6vw,22px);line-height:1.5;max-width:60ch}
+section{position:relative}
+.band-lime{background:var(--lime);color:var(--ink)}
+.band-lime .eyebrow{color:var(--madder)}
+.band-basalt{background:var(--basalt);color:var(--lime)}
+.band-basalt .eyebrow{color:var(--gold)}
+.band-basalt-2{background:var(--basalt-2);color:var(--lime)}
+.band-basalt-2 .eyebrow{color:var(--gold)}
+.pad{padding-block:clamp(72px,10vw,140px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.sec-head .eyebrow{grid-column:1/-1}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+
+/* ---------- top bar + nav ---------- */
+.ribbon{background:var(--madder);color:#f3e6d6;text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;padding:9px 16px}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--basalt) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--lime) 10%,transparent)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px}
+.mark{font-family:var(--display);font-size:19px;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+.mark span{color:var(--gold)}
+.links{display:flex;gap:26px;align-items:center;font-size:14px;font-weight:500}
+.links a{text-decoration:none;color:var(--dust);transition:color .2s}
+.links a:hover,.links a.on{color:var(--lime)}
+.nav .btn{padding:.6em 1.1em;font-size:14px}
+.menu-btn{display:none;background:none;border:1px solid color-mix(in srgb,var(--lime) 30%,transparent);color:var(--lime);border-radius:999px;padding:8px 14px;font:600 13px var(--ui);cursor:pointer}
+@media (max-width:980px){
+  .links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:flex-start;gap:0;background:var(--basalt);padding:8px var(--gutter) 20px;border-bottom:1px solid color-mix(in srgb,var(--lime) 12%,transparent)}
+  .links.open{display:flex}
+  .links a{padding:12px 0;font-size:17px;width:100%}
+  .menu-btn{display:inline-block}
+  .nav .btn{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:min(92svh,900px);display:flex;align-items:flex-end;overflow:hidden;background:#0f0d0b}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(15,13,11,.55) 0%,rgba(15,13,11,0) 26%,rgba(15,13,11,0) 46%,rgba(15,13,11,.86) 100%),
+  linear-gradient(90deg,rgba(15,13,11,.72) 0%,rgba(15,13,11,.35) 45%,rgba(15,13,11,0) 75%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding-block:clamp(120px,18vh,220px) clamp(36px,6vh,64px)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(54px,10.4vw,168px);line-height:.86;letter-spacing:-.025em;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .by{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline}
+.hero .by b{font-family:var(--display);font-weight:400;font-size:clamp(20px,2vw,26px);letter-spacing:.14em;text-transform:uppercase}
+.hero .tag{font-family:var(--read);font-style:italic;font-size:clamp(18px,1.7vw,22px);color:#ddd2bd;max-width:44ch;margin-top:22px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;margin-top:clamp(40px,7vh,80px);padding-top:18px;border-top:1px solid rgba(236,228,212,.18);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#cfc4ae}
+.hero-foot span b{color:var(--gold);font-weight:500}
+.vid-toggle{position:absolute;right:var(--gutter);top:22px;z-index:3;background:rgba(15,13,11,.45);color:var(--lime);border:1px solid rgba(236,228,212,.3);border-radius:999px;font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;cursor:pointer}
+
+/* ---------- book ---------- */
+.book-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:center}
+@media (max-width:900px){.book-grid{grid-template-columns:1fr}}
+.cover{position:relative;max-width:460px;margin-inline:auto}
+.cover img{filter:drop-shadow(0 40px 50px rgba(28,25,21,.35))}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--lime-3);border-radius:999px;padding:7px 12px;color:var(--ink-soft)}
+.synopsis{font-family:var(--read);font-size:19px;line-height:1.62;max-width:62ch;margin-top:28px;display:grid;gap:1em;color:#2b2620}
+.synopsis .more{display:grid;gap:1em}
+.read-more{margin-top:18px;background:none;border:0;padding:0;font:600 14px var(--ui);color:var(--madder);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.buy{margin-top:36px;display:grid;grid-template-columns:auto 1fr;gap:20px 28px;align-items:center;padding-top:28px;border-top:1px solid var(--lime-3)}
+.price{font-family:var(--display);font-size:46px;line-height:1}
+.price s{font-family:var(--ui);font-size:16px;color:var(--ink-soft);margin-left:10px}
+.buy .row{display:flex;flex-wrap:wrap;gap:10px}
+.retailers{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-soft)}
+.retailers a{text-decoration:none;border-bottom:1px solid var(--lime-3)}
+.retailers a:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:520px){.buy{grid-template-columns:1fr}}
+.endorse{margin-top:clamp(64px,8vw,110px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;border-top:1px solid var(--lime-3);padding-top:40px}
+.endorse blockquote{margin:0;font-family:var(--read);font-style:italic;font-size:clamp(21px,2vw,27px);line-height:1.35}
+.endorse cite{display:block;margin-top:14px;font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--madder)}
+@media (max-width:760px){.endorse{grid-template-columns:1fr}}
+
+/* ---------- look inside ---------- */
+.reader{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(28px,4vw,64px);align-items:center}
+@media (max-width:900px){.reader{grid-template-columns:1fr}}
+.stage{position:relative;aspect-ratio:2/1.6;max-width:100%;display:flex;align-items:center;justify-content:center;gap:0;perspective:2000px}
+.leaf{height:100%;aspect-ratio:803/1282;background:#fbf8f1;box-shadow:0 30px 60px rgba(0,0,0,.45);overflow:hidden;transition:opacity .35s,transform .45s}
+.leaf img{width:100%;height:100%;object-fit:cover}
+.leaf.l{transform-origin:right center;border-radius:3px 0 0 3px}
+.leaf.r{transform-origin:left center;border-radius:0 3px 3px 0}
+.leaf.turn{opacity:.25;transform:rotateY(-12deg)}
+@media (max-width:640px){.stage{aspect-ratio:803/1282}}
+.leaf[hidden]{display:none!important}
+.reader-side p{font-family:var(--read);font-size:18px;color:#d9cfbc}
+.pager{display:flex;align-items:center;gap:14px;margin-top:26px}
+.pager button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(236,228,212,.35);background:transparent;color:var(--lime);font-size:20px;cursor:pointer}
+.pager button:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.pager button:disabled{opacity:.3;cursor:default}
+.pager output{font-family:var(--mono);font-size:13px;letter-spacing:.12em;color:var(--dust)}
+.pull{margin-top:34px;padding-left:18px;border-left:2px solid var(--gold);font-family:var(--read);font-style:italic;font-size:21px;line-height:1.4}
+.pull small{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dust)}
+
+/* ---------- spring harvest ---------- */
+.watch{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,96px);align-items:center}
+.watch .phone{max-width:340px;justify-self:center;border-radius:22px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5);border:1px solid rgba(236,228,212,.12)}
+.watch .phone video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+@media (max-width:820px){.watch{grid-template-columns:1fr}.watch .phone{order:-1}}
+
+/* ---------- read along ---------- */
+.ra-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.progress{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.bar{width:180px;height:6px;border-radius:6px;background:var(--lime-3);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--madder);transition:width .4s}
+.sessions{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:860px){.sessions{grid-template-columns:1fr}}
+.s-list{display:grid;gap:4px;position:sticky;top:96px}
+@media (max-width:860px){.s-list{position:static;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+.s-tab{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;text-align:left;background:transparent;border:0;border-radius:10px;padding:12px 12px;cursor:pointer;color:var(--ink);font:500 15px var(--ui)}
+.s-tab .n{font-family:var(--display);font-size:22px;color:var(--ink-soft)}
+.s-tab .tick{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--lime-3)}
+.s-tab.done .tick{background:var(--madder);border-color:var(--madder)}
+.s-tab:hover{background:var(--lime-2)}
+.s-tab[aria-selected="true"]{background:var(--ink);color:var(--lime)}
+.s-tab[aria-selected="true"] .n{color:var(--gold)}
+.s-card{background:#f6f1e6;border:1px solid var(--lime-3);border-radius:18px;padding:clamp(24px,4vw,48px);min-width:0}
+.s-card .meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.s-card .intro{font-family:var(--read);font-size:19px;line-height:1.6;margin-top:22px;max-width:62ch}
+.s-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:32px;margin-top:32px}
+@media (max-width:700px){.s-cols{grid-template-columns:1fr}}
+.s-cols h4{margin:0 0 12px;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--madder)}
+.qs{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:q}
+.qs li{counter-increment:q;display:grid;grid-template-columns:28px 1fr;gap:8px;font-family:var(--read);font-size:17.5px;line-height:1.5}
+.qs li::before{content:counter(q);font-family:var(--display);font-size:20px;color:var(--gold-deep);line-height:1.3}
+.alongside{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.alongside li{font-size:15px;padding:10px 12px;border-radius:10px;background:var(--lime-2)}
+.alongside li b{font-weight:600}
+.reflect{margin-top:28px;padding:20px 22px;border-radius:14px;background:var(--ink);color:var(--lime);font-family:var(--read);font-style:italic;font-size:18px}
+.reflect span{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.s-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.notes{width:100%;margin-top:20px;min-height:90px;border-radius:12px;border:1px solid var(--lime-3);background:#fffdf8;color:var(--ink);font:400 16px/1.5 var(--read);padding:12px 14px;resize:vertical}
+.host{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.host div{border-top:1px solid var(--ink);padding-top:16px}
+.host b{display:block;font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:8px}
+.host p{font-size:15px;color:var(--ink-soft)}
+@media (max-width:760px){.host{grid-template-columns:1fr}}
+
+/* ---------- companion ---------- */
+.comp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start}
+@media (max-width:900px){.comp{grid-template-columns:1fr}}
+.chat{background:var(--basalt-3);border:1px solid rgba(236,228,212,.1);border-radius:20px;display:flex;flex-direction:column;min-height:520px;overflow:hidden}
+.log{flex:1;padding:24px;display:flex;flex-direction:column;gap:16px;overflow-y:auto;max-height:560px}
+.msg{max-width:88%;padding:14px 16px;border-radius:16px;font-size:16px;line-height:1.55;white-space:pre-wrap}
+.msg.me{align-self:flex-end;background:var(--gold);color:var(--basalt);border-bottom-right-radius:4px}
+.msg.it{align-self:flex-start;background:var(--basalt-2);border:1px solid rgba(236,228,212,.1);font-family:var(--read);font-size:17.5px;border-bottom-left-radius:4px}
+.msg.it.wait{color:var(--dust);font-style:italic}
+.suggest{display:flex;flex-wrap:wrap;gap:8px;padding:0 24px 16px}
+.suggest button{background:transparent;border:1px solid rgba(236,228,212,.25);color:#d9cfbc;border-radius:999px;padding:8px 14px;font:500 13.5px var(--ui);cursor:pointer;text-align:left}
+.suggest button:hover{border-color:var(--gold);color:var(--lime)}
+.ask{display:flex;gap:10px;padding:14px;border-top:1px solid rgba(236,228,212,.1);background:var(--basalt-2)}
+.ask input{flex:1;min-width:0;background:var(--basalt);border:1px solid rgba(236,228,212,.18);border-radius:999px;color:var(--lime);font:400 16px var(--ui);padding:12px 18px}
+.ask input::placeholder{color:var(--dust-2)}
+.comp-off{padding:28px;font-family:var(--read);font-size:18px;color:#d9cfbc}
+.comp-note{margin-top:18px;font-size:13px;color:var(--dust)}
+
+/* ---------- places ---------- */
+.places{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:start}
+@media (max-width:900px){.places{grid-template-columns:1fr}}
+.mapbox{position:relative;background:var(--basalt-2);border-radius:20px;border:1px solid rgba(236,228,212,.08);overflow:hidden}
+.mapbox svg{display:block;width:100%;height:auto}
+.pin{cursor:pointer}
+.pin circle.dot{fill:var(--lime);stroke:var(--basalt);stroke-width:2;transition:r .2s}
+.pin circle.halo{fill:var(--gold);opacity:0}
+.pin text{font-family:var(--mono);font-size:11px;letter-spacing:.06em;fill:#cfc4ae;pointer-events:none}
+.pin:hover circle.dot,.pin.on circle.dot{fill:var(--gold)}
+.pin.on circle.halo{opacity:.25}
+.pin:focus{outline:none}
+.pin:focus-visible circle.dot{stroke:var(--gold);stroke-width:3}
+.place-card{background:var(--basalt-3);border:1px solid rgba(236,228,212,.1);border-radius:20px;padding:clamp(22px,3vw,36px);min-width:0}
+.place-card .alt{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.place-card h3{font-size:clamp(30px,3.4vw,44px);margin-top:10px}
+.place-card p{font-family:var(--read);font-size:18px;line-height:1.6;color:#ddd3c0;margin-top:16px}
+.place-card .refs{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.place-card .refs span{font-family:var(--mono);font-size:12px;border:1px solid rgba(236,228,212,.2);border-radius:999px;padding:6px 10px;color:#cfc4ae}
+.place-card .coord{margin-top:22px;font-family:var(--mono);font-size:12px;color:var(--dust-2)}
+.timeline{margin-top:clamp(48px,6vw,80px)}
+.tl-track{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(150px,1fr);gap:0;overflow-x:auto;padding-bottom:12px;scrollbar-width:thin}
+.tl-item{position:relative;padding:28px 18px 0 0;border-top:1px solid rgba(236,228,212,.2);background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;color:var(--lime);cursor:pointer;font:inherit}
+.tl-item::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--basalt);border:2px solid var(--dust)}
+.tl-item.on::before,.tl-item:hover::before{border-color:var(--gold);background:var(--gold)}
+.tl-item .d{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--gold)}
+.tl-item .t{display:block;margin-top:6px;font-family:var(--display);font-size:19px;line-height:1.2}
+.tl-item .w{display:block;margin-top:4px;font-size:13px;color:var(--dust)}
+
+/* ---------- people ---------- */
+.people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.people{grid-template-columns:1fr}}
+.person{perspective:1200px;min-height:260px;background:none;border:0;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.person .in{position:relative;height:100%;min-height:260px;transition:transform .6s;transform-style:preserve-3d}
+.person.flip .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:16px;padding:22px;display:flex;flex-direction:column;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.front{background:#f6f1e6;border:1px solid var(--lime-3)}
+.front .heb{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--madder)}
+.front h3{margin-top:auto;font-size:30px}
+.front .role{margin-top:6px;font-size:14px;color:var(--ink-soft)}
+.back{background:var(--ink);color:var(--lime);transform:rotateY(180deg);font-family:var(--read);font-size:16.5px;line-height:1.5}
+.back .ref{margin-top:auto;font-family:var(--mono);font-size:12px;color:var(--gold)}
+@media (prefers-reduced-motion:reduce){.person .in{transition:none}}
+
+/* ---------- wholesale ---------- */
+.ws{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:start}
+@media (max-width:900px){.ws{grid-template-columns:1fr}}
+.who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:36px}
+.who div{padding:18px;border-radius:14px;background:#f6f1e6;border:1px solid var(--lime-3)}
+.who b{display:block;font-family:var(--display);font-weight:400;font-size:21px}
+.who p{margin-top:6px;font-size:14.5px;color:var(--ink-soft)}
+@media (max-width:520px){.who{grid-template-columns:1fr}}
+.tiers{width:100%;border-collapse:collapse;margin-top:36px;font-variant-numeric:tabular-nums}
+.tiers th,.tiers td{text-align:left;padding:14px 4px;border-bottom:1px solid var(--lime-3)}
+.tiers th{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.tiers td:last-child,.tiers th:last-child{text-align:right}
+.tiers tr.on td{color:var(--madder);font-weight:600}
+.calc{background:var(--ink);color:var(--lime);border-radius:22px;padding:clamp(24px,3.5vw,40px);position:sticky;top:96px}
+.calc label{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(236,228,212,.3);background:transparent;color:var(--lime);font-size:20px;cursor:pointer}
+.qty input{width:110px;text-align:center;background:var(--basalt);border:1px solid rgba(236,228,212,.2);border-radius:12px;color:var(--lime);font:600 22px var(--ui);padding:10px;font-variant-numeric:tabular-nums}
+.range{width:100%;margin-top:18px;accent-color:#c9a45c}
+.out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px;font-variant-numeric:tabular-nums}
+.out div{border-top:1px solid rgba(236,228,212,.2);padding-top:12px}
+.out small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dust)}
+.out b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(24px,2.4vw,32px);margin-top:6px}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
+.form .full{grid-column:1/-1}
+.field{display:grid;gap:6px}
+.field span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dust)}
+.field input,.field select,.field textarea{background:var(--basalt);border:1px solid rgba(236,228,212,.2);border-radius:10px;color:var(--lime);font:400 15px var(--ui);padding:11px 12px;width:100%}
+.form .btn{justify-self:start}
+.sent{margin-top:14px;font-size:14px;color:var(--gold)}
+@media (max-width:520px){.form{grid-template-columns:1fr}}
+
+/* ---------- note + newsletter + footer ---------- */
+.note{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+@media (max-width:820px){.note{grid-template-columns:1fr}}
+.note blockquote{margin:0;font-family:var(--display);font-size:clamp(30px,3.6vw,50px);line-height:1.12}
+.note .sig{width:220px;margin-top:28px;filter:invert(1) sepia(.3) brightness(1.1)}
+.news{display:grid;gap:16px;background:var(--basalt-3);border-radius:20px;padding:clamp(24px,3.5vw,40px);border:1px solid rgba(236,228,212,.1)}
+.news .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.news input{background:var(--basalt);border:1px solid rgba(236,228,212,.2);border-radius:10px;color:var(--lime);font:400 15px var(--ui);padding:12px;width:100%}
+@media (max-width:520px){.news .row{grid-template-columns:1fr}}
+footer{background:#0e0c0a;color:var(--dust);padding-block:64px 40px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px}
+.f-grid h5{margin:0 0 12px;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.f-grid a{display:block;text-decoration:none;padding:3px 0}
+.f-grid a:hover{color:var(--lime)}
+.f-mark{font-family:var(--display);font-size:28px;color:var(--lime);line-height:1.1}
+.f-base{margin-top:48px;padding-top:20px;border-top:1px solid rgba(236,228,212,.1);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+@media (max-width:760px){.f-grid{grid-template-columns:1fr 1fr}}
+
+/* reveal: visible at rest, gently lifted when JS runs */
+.rv{transition:opacity .8s ease,transform .8s ease}
+.js .rv.pre{transform:translateY(22px)}
+@media (prefers-reduced-motion:reduce){.rv{transition:none}.js .rv.pre{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<div class="ribbon">The #1 Sunday Times Bestseller</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top">The Greatest Story <span>Ever Told</span></a>
+    <div class="links" id="links">
+      <a href="#book">The book</a>
+      <a href="#inside">Look inside</a>
+      <a href="#read-along">Read along</a>
+      <a href="#companion">Companion</a>
+      <a href="#places">Places</a>
+      <a href="#wholesale">Wholesale</a>
+    </div>
+    <a class="btn btn-gold" href="#book">Get the book</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <img class="poster" src="assets/video/hero-poster.jpg" alt="">
+  <video id="heroVid" autoplay muted loop playsinline preload="auto" poster="assets/video/hero-poster.jpg" aria-label="Film: Passover crowds and palm branches in Yerushalem, a ragged crowd at the crucifixion on Golgotha, rough labourers laughing over bread in an olive grove, weathered fishermen hauling and casting nets on the Sea of Galilee">
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
+  <button class="vid-toggle" id="vidToggle" aria-pressed="false">Pause film</button>
+  <div class="hero-inner wrap">
+    <p class="eyebrow" style="color:var(--gold)">An Eyewitness Account</p>
+    <h1>The Greatest Story <em>Ever</em> Told</h1>
+    <div class="by"><b>Bear Grylls</b></div>
+    <p class="tag">The incredible true story of a Galilean stonemason who changed the course of the world forever.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#book">Get the book · £11.99</a>
+      <a class="btn btn-line" href="#inside">Read the prologue</a>
+      <a class="btn btn-line" href="#read-along">Start a read-along</a>
+    </div>
+    <div class="hero-foot">
+      <span><b>32°49′N 35°35′E</b> &nbsp;Sea of Galilee</span>
+      <span>Hodder &amp; Stoughton · Hardback · 320pp</span>
+      <span>Out now</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- THE BOOK -->
+<section class="band-lime pad" id="book">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="cover rv"><img src="assets/book/greatest-story-ever-told-3d.webp" alt="The Greatest Story Ever Told by Bear Grylls, hardback cover"></div>
+      <div class="rv">
+        <p class="eyebrow">The book</p>
+        <h2 style="margin-top:16px">A humble builder. A brutal empire. A mystery that rests on three days.</h2>
+        <div class="facts">
+          <span class="chip">#1 Sunday Times bestseller</span>
+          <span class="chip">Hardback · 320pp</span>
+          <span class="chip">Released 18 June 2025</span>
+        </div>
+        <div class="synopsis">
+          <p>Beautifully told through the eyewitness accounts of those who knew him best. This real-life story will never leave you.</p>
+          <p>This is the incredible true story of a Galilean stonemason who changed the course of the world forever. He lived and died over 2,000 years ago, fulfilling expectations that existed long before his birth.</p>
+          <div class="more" id="more" hidden>
+            <p>His birth had been mystically foretold by astrologers for hundreds of years, yet the rulers of his day dreaded his coming.</p>
+            <p>This humble builder and teacher became a magnet for the poor and downtrodden, a symbol of love and mercy, who transformed the lives and restored the health and purpose in all who encountered him.</p>
+            <p>The local elite and governing rulers eventually tortured him and put him to death in the most violent and public of ways. Yet that was only the beginning.</p>
+            <p>In the years since, billions of people have dedicated their lives to this man and have testified to his divinity and truth. To others, he is little more than another rebel who was killed by one of the most brutal empires in human history.</p>
+            <p>How we each respond to this story dictates the course of our lives. And it all rests on the great mystery that occurred at the end of his life: a supernatural event that he had predicted with utter clarity.</p>
+            <p>Did this humble man tell the truth? Could one man really be the focal point of the universe? Read on to find out, and get ready to make up your own mind.</p>
+          </div>
+        </div>
+        <button class="read-more" id="readMore" aria-expanded="false" aria-controls="more">Read the full description</button>
+        <div class="buy">
+          <div class="price">£11.99<s>£14.99</s></div>
+          <div class="row">
+            <a class="btn btn-ink" href="#wholesale">Buy direct</a>
+            <a class="btn btn-ghost-ink" href="https://www.amazon.com/dp/1399817566" target="_blank" rel="noopener">Amazon US</a>
+          </div>
+          <div class="retailers">
+            <span>Also at</span>
+            <a href="https://www.amazon.ca/dp/1399817566" target="_blank" rel="noopener">Amazon Canada</a>
+            <a href="https://www.amazon.com.au/dp/1399817566" target="_blank" rel="noopener">Amazon Australia</a>
+            <a href="https://www.bookhero.co.nz/products/the-greatest-story-ever-told" target="_blank" rel="noopener">BookHero New Zealand</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="endorse">
+      <blockquote class="rv">“There is more evidence that this story is true, than there is that Julius Caesar ever even lived.”<cite>Dr Billy Graham · from the jacket</cite></blockquote>
+      <blockquote class="rv">“You believe because you’ve seen with your own eyes. Even better blessings are in store for those who believe without seeing.”<cite>From the jacket</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- LOOK INSIDE -->
+<section class="band-basalt-2 pad" id="inside">
+  <div class="wrap">
+    <div class="reader">
+      <div class="stage" id="stage" aria-live="polite">
+        <div class="leaf l" id="leafL"><img id="imgL" src="assets/look-inside/page-1.jpg" alt="Front cover"></div>
+        <div class="leaf r" id="leafR"><img id="imgR" src="assets/look-inside/page-3.jpg" alt="Preview page"></div>
+      </div>
+      <div class="reader-side rv">
+        <p class="eyebrow">Look inside</p>
+        <h2 style="margin-top:16px">Begin on the road out of Yerushalem.</h2>
+        <p style="margin-top:20px">The book opens in AD 33, three days after the execution, as two companions walk west at sunset and a stranger falls into step beside them.</p>
+        <div class="pager">
+          <button id="prev" aria-label="Previous pages">←</button>
+          <output id="pageNo">1 / 3</output>
+          <button id="next" aria-label="Next pages">→</button>
+        </div>
+        <div class="pull">“How slow you are to believe all that the prophets have spoken!”<small>Prologue · Yerushalem · c. AD 33</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRING HARVEST -->
+<section class="band-basalt pad" id="watch">
+  <div class="wrap watch">
+    <div class="rv">
+      <p class="eyebrow">Watch</p>
+      <h2 style="margin-top:16px">Bear, at Spring Harvest.</h2>
+      <p class="lede" style="margin-top:22px;color:#d9cfbc">Bear introduces The Greatest Story Ever Told at Spring Harvest, in his own words and in his own voice.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a class="btn btn-line" href="https://www.facebook.com/reel/1670879447639683/" target="_blank" rel="noopener">Watch on Facebook</a>
+        <a class="btn btn-line" href="https://greateststoryevertoldbook.com/listen-to-an-extract/" target="_blank" rel="noopener">Listen to an extract</a>
+      </div>
+    </div>
+    <div class="phone rv"><video controls playsinline preload="metadata" poster="assets/video/spring-harvest-poster.jpg"><source src="assets/video/spring-harvest.mp4" type="video/mp4"></video></div>
+  </div>
+</section>
+
+<!-- READ ALONG -->
+<section class="band-lime pad" id="read-along">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Book club read-along</p>
+      <h2>Read it together. Six evenings, one story.</h2>
+      <p class="lede" style="color:#3a332a">A guide for reading groups, churches and families. Each session follows one stretch of the story, with Gospel passages to read alongside and questions to talk through. Go at your group's own pace.</p>
+    </div>
+    <div class="ra-top">
+      <div class="progress"><span id="raCount">0 of 6 sessions done</span><span class="bar"><i id="raBar"></i></span></div>
+      <button class="btn btn-ghost-ink" id="raReset" style="padding:.55em 1em;font-size:13px">Clear my progress</button>
+    </div>
+    <div class="sessions">
+      <div class="s-list" role="tablist" aria-label="Sessions" id="sList"></div>
+      <article class="s-card" id="sCard" role="tabpanel" aria-live="polite"></article>
+    </div>
+    <div class="host">
+      <div><b>Running a group</b><p>Sixty to ninety minutes works well. Read the session before you meet, then open with the reflection and let the questions do the rest.</p></div>
+      <div><b>Reading alongside</b><p>The Gospel passages are there to compare. Notice where the book's eyewitness voices fill in what the Gospels leave out.</p></div>
+      <div><b>Your notes stay here</b><p>Notes and ticks are saved in this browser only. Nothing is sent anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANION -->
+<section class="band-basalt pad" id="companion">
+  <div class="wrap comp">
+    <div class="rv">
+      <p class="eyebrow">Reading companion</p>
+      <h2 style="margin-top:16px">Ask about the world behind the story.</h2>
+      <p class="lede" style="margin-top:22px;color:#d9cfbc">Who were the Pharisees? Why did Rome crucify people? What was Capernaum like? The companion answers questions about the people, places and history of first-century Judea and Galilee, so you can read with the background in your head.</p>
+      <p class="comp-note">The companion is powered by Claude. It explains history and the Gospel accounts. It does not speak for Bear or quote the book beyond the passages on this page.</p>
+    </div>
+    <div class="chat" id="chat">
+      <div class="log" id="log">
+        <div class="msg it">Shalom. Ask me anything about the people, places and times in the story: the fishermen of Galilee, the temple in Yerushalem, Roman rule, or what happened on the road three days after the execution.</div>
+      </div>
+      <div class="suggest" id="suggest">
+        <button type="button">Why was Yeshua called a builder, not a carpenter?</button>
+        <button type="button">What was the road to Emmaus like?</button>
+        <button type="button">Who were the Zealots?</button>
+        <button type="button">What did a Galilean fisherman's day look like?</button>
+      </div>
+      <form class="ask" id="askForm">
+        <label for="askInput" class="eyebrow" style="position:absolute;left:-9999px">Your question</label>
+        <input id="askInput" autocomplete="off" placeholder="Ask a question about the story's world">
+        <button class="btn btn-gold" id="askBtn" type="submit">Ask</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PLACES + TIMELINE -->
+<section class="band-basalt-2 pad" id="places">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Walk the land</p>
+      <h2>From Bethlehem to the road out of Yerushalem.</h2>
+      <p class="lede" style="color:#d9cfbc">Every place in the story is real. Tap a place on the map, or move along the timeline, to see what happened there and where to read about it.</p>
+    </div>
+    <div class="places">
+      <div class="mapbox"><svg id="map" viewBox="0 0 600 760" role="img" aria-label="Map of first-century Galilee, Samaria and Judea"></svg></div>
+      <div class="place-card" id="placeCard" aria-live="polite"></div>
+    </div>
+    <div class="timeline">
+      <p class="eyebrow">Timeline · dates are scholars' best estimates</p>
+      <div class="tl-track" id="tl" role="list" style="margin-top:22px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="band-lime pad" id="people">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Who was there</p>
+      <h2>The eyewitnesses.</h2>
+      <p class="lede" style="color:#3a332a">The story is told through the people who knew him best. Here is who they were in the Gospel accounts, by the names they would have answered to. Tap a card to turn it over.</p>
+    </div>
+    <div class="people" id="people-grid"></div>
+  </div>
+</section>
+
+<!-- WHOLESALE -->
+<section class="band-lime pad" id="wholesale" style="border-top:1px solid var(--lime-3)">
+  <div class="wrap ws">
+    <div>
+      <p class="eyebrow">Wholesale and bulk</p>
+      <h2 style="margin-top:16px">For churches, schools and every group of readers.</h2>
+      <p class="lede" style="margin-top:22px;color:#3a332a">Give a copy to every family, every pew, every student. Bulk prices step down as your order grows, shipped from the Hodder &amp; Stoughton warehouse.</p>
+      <div class="who">
+        <div><b>Churches</b><p>Alpha courses, Easter and Christmas giving, welcome packs for new members.</p></div>
+        <div><b>Schools</b><p>RE departments, chaplaincy and leavers' gifts.</p></div>
+        <div><b>Events and festivals</b><p>Conference packs, speaker tables and festival stands.</p></div>
+        <div><b>Bookshops</b><p>Order through your usual Hodder &amp; Stoughton trade account.</p></div>
+      </div>
+      <table class="tiers" id="tiers">
+        <thead><tr><th>Copies</th><th>Per copy</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p style="margin-top:14px;font-size:14px;color:var(--ink-soft)">Bulk discounts available in the UK.</p>
+    </div>
+    <div class="calc" id="calc">
+      <label for="qtyIn">How many copies?</label>
+      <div class="qty">
+        <button type="button" id="qMinus" aria-label="Fewer copies">−</button>
+        <input id="qtyIn" type="number" inputmode="numeric" min="1" max="5000" value="50">
+        <button type="button" id="qPlus" aria-label="More copies">+</button>
+      </div>
+      <input class="range" id="qtyRange" type="range" min="1" max="250" value="50" aria-label="Copies">
+      <div class="out">
+        <div><small>Per copy</small><b id="oEach">£7.99</b></div>
+        <div><small>Total</small><b id="oTotal">£399.50</b></div>
+        <div><small>You save</small><b id="oSave">£350.00</b></div>
+      </div>
+      <form class="form" id="wsForm">
+        <label class="field"><span>Name</span><input id="wsName" required></label>
+        <label class="field"><span>Organisation</span><input id="wsOrg"></label>
+        <label class="field"><span>Email</span><input id="wsEmail" type="email" required></label>
+        <label class="field"><span>I'm ordering for</span>
+          <select id="wsType"><option>A church</option><option>A school</option><option>An event</option><option>A bookshop</option><option>Something else</option></select></label>
+        <label class="field full"><span>Anything we should know</span><textarea id="wsMsg" rows="3"></textarea></label>
+        <button class="btn btn-gold full" type="submit">Request this order</button>
+      </form>
+      <p class="sent" id="wsSent" hidden>Thank you. This preview does not send orders yet; when the site goes live this form will reach the bulk orders team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL NOTE + NEWSLETTER -->
+<section class="band-basalt pad" id="note">
+  <div class="wrap note">
+    <div class="rv">
+      <p class="eyebrow">A personal note</p>
+      <blockquote style="margin-top:20px">May the light and love of the Almighty fill your life, with truth, peace and strength. Nothing can ever steal Christ’s presence from you.</blockquote>
+      <img class="sig" src="assets/book/bear-signature.png" alt="Bear Grylls signature">
+    </div>
+    <form class="news rv" id="newsForm">
+      <p class="eyebrow">Newsletter</p>
+      <h3>Be the first to hear.</h3>
+      <p style="color:#d9cfbc">Updates about The Greatest Story Ever Told, new readings and read-along sessions.</p>
+      <div class="row">
+        <input id="nFirst" placeholder="First name" aria-label="First name">
+        <input id="nLast" placeholder="Last name" aria-label="Last name">
+      </div>
+      <input id="nEmail" type="email" placeholder="Email" aria-label="Email" required>
+      <button class="btn btn-gold" type="submit" style="justify-self:start">Subscribe</button>
+      <p class="sent" id="newsSent" hidden>Thank you, we’ll be in touch.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><div class="f-mark">The Greatest Story<br>Ever Told</div><p style="margin-top:14px;max-width:34ch">An eyewitness account by Bear Grylls. Published by Hodder &amp; Stoughton, London.</p></div>
+      <div><h5>The book</h5><a href="#book">Get the book</a><a href="#inside">Look inside</a><a href="#read-along">Read-along guide</a><a href="#wholesale">Bulk orders</a></div>
+      <div><h5>Customer</h5><a href="https://greateststoryevertoldbook.com/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a><a href="https://greateststoryevertoldbook.com/refund_returns/" target="_blank" rel="noopener">Returns and refunds</a><a href="https://greateststoryevertoldbook.com/postage-costs/" target="_blank" rel="noopener">Postage</a></div>
+      <div><h5>The author</h5><a href="https://www.beargrylls.com/" target="_blank" rel="noopener">Bear Grylls</a><a href="https://www.beargrylls.com/books.html" target="_blank" rel="noopener">Other books</a><a href="https://speaking.beargrylls.com/" target="_blank" rel="noopener">Speaking</a></div>
+    </div>
+    <div class="f-base"><span>© 2026 · Hodder &amp; Stoughton</span><span>Design preview · not the live site</span></div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+
+/* nav */
+$('#menuBtn').addEventListener('click', e => {
+  const open = $('#links').classList.toggle('open');
+  e.currentTarget.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#links a').forEach(a => a.addEventListener('click', () => $('#links').classList.remove('open')));
+const navLinks = [...document.querySelectorAll('#links a')];
+const spy = new IntersectionObserver(es => es.forEach(en => {
+  if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id));
+}), {rootMargin: '-45% 0px -50% 0px'});
+['book','inside','read-along','companion','places','wholesale'].forEach(id => spy.observe(document.getElementById(id)));
+
+/* hero video */
+const hv = $('#heroVid'), vt = $('#vidToggle');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduce) { hv.removeAttribute('autoplay'); hv.pause(); vt.textContent = 'Play film'; vt.setAttribute('aria-pressed','true'); }
+vt.addEventListener('click', () => {
+  if (hv.paused) { hv.play().catch(()=>{}); vt.textContent = 'Pause film'; vt.setAttribute('aria-pressed','false'); }
+  else { hv.pause(); vt.textContent = 'Play film'; vt.setAttribute('aria-pressed','true'); }
+});
+
+/* reveal */
+const rvs = [...document.querySelectorAll('.rv')];
+const below = rvs.filter(el => el.getBoundingClientRect().top > innerHeight);
+below.forEach(el => el.classList.add('pre'));
+const rio = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting){ en.target.classList.remove('pre'); rio.unobserve(en.target); } }), {rootMargin:'0px 0px -8% 0px'});
+below.forEach(el => rio.observe(el));
+
+/* synopsis */
+$('#readMore').addEventListener('click', e => {
+  const m = $('#more'); m.hidden = !m.hidden;
+  e.currentTarget.textContent = m.hidden ? 'Read the full description' : 'Show less';
+  e.currentTarget.setAttribute('aria-expanded', !m.hidden);
+});
+
+/* look inside */
+const SEQ = [1,3,4,5,6];               /* page 2 of the preview is the blank inside cover */
+const SPREADS = [[1,3],[4,5],[6]];
+let sp = 0, one = 0;
+const narrow = () => matchMedia('(max-width:640px)').matches;
+const setLeaf = (el, img, n) => { if (n){ el.hidden = false; img.src = `assets/look-inside/page-${n}.jpg`; img.alt = n===1 ? 'Front cover' : n===6 ? 'Back cover' : 'Preview page'; } else { el.hidden = true; } };
+function showPages(){
+  [$('#leafL'), $('#leafR')].forEach(l => l.classList.add('turn'));
+  setTimeout(() => {
+    if (narrow()) { setLeaf($('#leafL'), $('#imgL'), 0); setLeaf($('#leafR'), $('#imgR'), SEQ[one]); }
+    else { const [a,b] = SPREADS[sp]; setLeaf($('#leafL'), $('#imgL'), b ? a : 0); setLeaf($('#leafR'), $('#imgR'), b ? b : a); }
+    [$('#leafL'), $('#leafR')].forEach(l => l.classList.remove('turn'));
+  }, reduce ? 0 : 180);
+  const i = narrow() ? one : sp, n = narrow() ? SEQ.length : SPREADS.length;
+  $('#pageNo').textContent = `${i+1} / ${n}`;
+  $('#prev').disabled = i <= 0; $('#next').disabled = i >= n-1;
+}
+$('#prev').addEventListener('click', () => { if (narrow()) one = Math.max(0, one-1); else sp = Math.max(0, sp-1); showPages(); });
+$('#next').addEventListener('click', () => { if (narrow()) one = Math.min(SEQ.length-1, one+1); else sp = Math.min(SPREADS.length-1, sp+1); showPages(); });
+document.addEventListener('keydown', e => { const r = $('#inside').getBoundingClientRect(); if (r.top > innerHeight/2 || r.bottom < innerHeight/2) return; if (e.key === 'ArrowRight') $('#next').click(); if (e.key === 'ArrowLeft') $('#prev').click(); });
+let lastNarrow = narrow(); addEventListener('resize', () => { if (narrow() !== lastNarrow){ lastNarrow = narrow(); showPages(); } });
+showPages();
+
+/* read-along */
+const SESS = [
+  { n:1, title:'Foretold', span:'Before the birth to the hidden years', place:'Bethlehem · Nazareth',
+    intro:'Long before he was born, prophets and astrologers spoke of a coming king. Then a child arrives in an occupied province, to a family with nothing, and the most powerful man in the region tries to kill him.',
+    read:[['Micah 5:2','The ruler from Bethlehem'],['Isaiah 9:1–7','Light for Galilee'],['Matthew 2','The Magi and Herod'],['Luke 2','Shepherds and the temple']],
+    qs:['Why would rulers dread the birth of a child from a poor family?','What does it change for you that he was born a refugee under foreign occupation?','The book calls him a builder, not a carpenter. How does that change the picture of his early life?','Which detail of the birth story had you never noticed before?'],
+    reflect:'Think of a time when something important arrived quietly. How did you know it mattered?' },
+  { n:2, title:'The builder from Nazareth', span:'Baptism to the first followers', place:'Jordan River · Cana · Capernaum',
+    intro:'A stonemason from a village nobody rated walks into the Jordan to be baptised, goes out into the wilderness, and comes back to call fishermen away from their nets.',
+    read:[['Mark 1','Baptism and the first disciples'],['Luke 4','Temptation and Nazareth'],['John 2','Water into wine at Cana']],
+    qs:['Why do you think he chose fishermen and labourers rather than scholars?','What would it have cost Shimon and Andrew to walk away from their boats?','His home town tried to throw him off a cliff. Why is it hardest to be taken seriously at home?','What is the first thing he does in public, and what does it tell you about him?'],
+    reflect:'Who first took a chance on you before you had proved anything?' },
+  { n:3, title:'Galilee', span:'Teaching, healing and crowds', place:'Capernaum · Sea of Galilee · Bethsaida',
+    intro:'The lakeside towns become his home base. He teaches on hillsides and from boats, touches people others would not touch, and the crowds grow too big for any house.',
+    read:[['Matthew 5–7','The Sermon on the Mount'],['Mark 4','Parables and the storm'],['Mark 5','Healings by the lake'],['Luke 9:10–17','Feeding the five thousand']],
+    qs:['Which line from the Sermon on the Mount would be hardest to live by today?','Why did the outcasts and the forgotten come to him first?','Why did he so often tell people not to spread the word?','The disciples panic in the storm while he sleeps. When have you felt like that?'],
+    reflect:'Who are the people on the edges of your own town, and what would it look like to sit with them?' },
+  { n:4, title:'Who do you say I am?', span:'The turn towards Yerushalem', place:'Caesarea Philippi · Jericho · Bethany',
+    intro:'Far to the north he asks his friends the question at the centre of the book. Then he turns south, towards the city where he says he will die, and raises his friend Lazarus on the way.',
+    read:[['Mark 8:27–38','Peter’s answer'],['Luke 19:1–10','Zacchaeus in Jericho'],['John 11','Lazarus at Bethany']],
+    qs:['How would you answer the question he asked his friends?','Why does he start to talk about suffering just as they decide he is the Messiah?','What made a tax collector like Zacchaeus change his whole life in an afternoon?','Why do you think he wept at Lazarus’s tomb when he knew what he was about to do?'],
+    reflect:'What would you need to see to be sure about someone?' },
+  { n:5, title:'The last week', span:'Entry to the city, arrest and execution', place:'Yerushalem · Gethsemane · Golgotha',
+    intro:'He rides into the city to a hero’s welcome, overturns the temple traders, shares a last meal with his friends and is betrayed by one of them. Within a day he is tried, tortured and executed by Rome.',
+    read:[['Mark 11','Entry and the temple'],['Mark 14','The last supper and Gethsemane'],['Mark 15','Trial and crucifixion'],['John 18–19','Before Pilate']],
+    qs:['Why did the same city cheer him and then call for his death within days?','What do you make of the way he behaves at his trial?','Shimon swore he would never deny him, and then did, three times. Why?','Why do you think the Gospel writers kept such painful details in the story?'],
+    reflect:'Where have you seen courage that looked like weakness at the time?' },
+  { n:6, title:'Three days later', span:'The empty tomb and the road out of the city', place:'Yerushalem · the road west',
+    intro:'This is where the book itself begins. Two companions walk away from the city at sunset, defeated, and a stranger joins them on the road. Then reports begin to spread that the tomb is empty.',
+    read:[['Luke 24','The road to Emmaus'],['John 20','Mary Magdalene and Thomas'],['John 21','Breakfast by the lake'],['1 Corinthians 15:3–8','The earliest list of witnesses']],
+    qs:['Why does the book open here, three days after the execution, rather than at the birth?','Why did the companions not recognise him on the road?','Thomas would not believe without seeing. Is that doubt or honesty?','The book asks readers to make up their own mind. Having read it, where have you landed?'],
+    reflect:'“Did not our hearts burn within us?” When has something you heard felt like that?' }
+];
+let cur = 0;
+let done = store.get('gset-ra-done', []);
+let notes = store.get('gset-ra-notes', {});
+function drawTabs(){
+  $('#sList').innerHTML = SESS.map((s,i) => `<button class="s-tab${done.includes(s.n)?' done':''}" role="tab" id="tab${i}" aria-selected="${i===cur}" aria-controls="sCard" data-i="${i}"><span class="n">${s.n}</span><span>${s.title}</span><span class="tick" aria-hidden="true"></span></button>`).join('');
+  $('#sList').querySelectorAll('.s-tab').forEach(b => b.addEventListener('click', () => { cur = +b.dataset.i; drawTabs(); drawCard(); }));
+  const c = done.length;
+  $('#raCount').textContent = `${c} of 6 sessions done`;
+  $('#raBar').style.width = (c/6*100) + '%';
+}
+function drawCard(){
+  const s = SESS[cur], isDone = done.includes(s.n);
+  $('#sCard').setAttribute('aria-labelledby', 'tab'+cur);
+  $('#sCard').innerHTML = `
+    <p class="eyebrow">Session ${s.n} of 6</p>
+    <h3 style="font-size:clamp(30px,3.6vw,46px);margin-top:10px">${s.title}</h3>
+    <div class="meta"><span>${s.span}</span><span>${s.place}</span></div>
+    <p class="intro">${s.intro}</p>
+    <div class="s-cols">
+      <div><h4>Talk it through</h4><ol class="qs">${s.qs.map(q=>`<li>${q}</li>`).join('')}</ol></div>
+      <div><h4>Read alongside</h4><ul class="alongside">${s.read.map(r=>`<li><b>${r[0]}</b> · ${r[1]}</li>`).join('')}</ul></div>
+    </div>
+    <div class="reflect"><span>To open the evening</span>${s.reflect}</div>
+    <label for="note${s.n}" class="eyebrow" style="display:block;margin-top:28px;color:var(--ink-soft)">My notes</label>
+    <textarea class="notes" id="note${s.n}" placeholder="What stood out for you?">${(notes[s.n]||'').replace(/</g,'&lt;')}</textarea>
+    <div class="s-actions">
+      <button class="btn btn-ink" id="markDone">${isDone ? 'Marked as done' : 'Mark session as done'}</button>
+      ${cur < 5 ? `<button class="btn btn-ghost-ink" id="nextS">Next session →</button>` : ''}
+    </div>`;
+  $('#note'+s.n).addEventListener('input', e => { notes[s.n] = e.target.value; store.set('gset-ra-notes', notes); });
+  $('#markDone').addEventListener('click', () => {
+    done = done.includes(s.n) ? done.filter(x=>x!==s.n) : [...done, s.n];
+    store.set('gset-ra-done', done); drawTabs(); drawCard();
+  });
+  const ns = $('#nextS'); if (ns) ns.addEventListener('click', () => { cur++; drawTabs(); drawCard(); $('#read-along').scrollIntoView({behavior: reduce?'auto':'smooth'}); });
+}
+$('#raReset').addEventListener('click', () => { done = []; notes = {}; store.set('gset-ra-done', done); store.set('gset-ra-notes', notes); drawTabs(); drawCard(); });
+drawTabs(); drawCard();
+
+/* places */
+const PLACES = [
+  {id:'bethlehem', name:'Bethlehem', alt:'Beit Lechem · “house of bread”', lat:31.705, lon:35.200, refs:['Micah 5:2','Matthew 2','Luke 2'], text:'A small town in the hills south of Yerushalem, the city of King David. The prophet Micah named it as the birthplace of a coming ruler, and it is where the story begins.'},
+  {id:'nazareth', name:'Nazareth', alt:'Natzrat · Galilee', lat:32.699, lon:35.304, refs:['Luke 2:39–52','Mark 6:1–6'], text:'A hill village of perhaps a few hundred people, close to the building site of Sepphoris. He grew up here working as a builder, and here his own neighbours later rejected him.'},
+  {id:'jordan', name:'The Jordan River', alt:'Ha-Yarden · near Jericho', lat:31.837, lon:35.540, refs:['Mark 1:9–11','John 1:28'], text:'Near where the river meets the Dead Sea, Yohanan the Baptiser called people to turn their lives around. Yeshua was baptised here before going out into the wilderness.'},
+  {id:'cana', name:'Cana', alt:'Kana · Galilee', lat:32.746, lon:35.339, refs:['John 2:1–11','John 4:46'], text:'A village a few miles from Nazareth. At a wedding here, when the wine ran out, John records his first sign.'},
+  {id:'capernaum', name:'Capernaum', alt:'Kfar Nahum · “village of Nahum”', lat:32.881, lon:35.575, refs:['Matthew 4:13','Mark 1:21–34','Mark 2:1–12'], text:'A fishing town on the north shore of the lake, built of black basalt. It became his base: the home of Shimon and Andrew, its synagogue and its crowded courtyards.'},
+  {id:'galilee', name:'The Sea of Galilee', alt:'Yam Kinneret · the lake', lat:32.80, lon:35.590, refs:['Mark 4:35–41','Matthew 14:22–33','John 21'], text:'A freshwater lake about twenty kilometres long, lying 200 metres below sea level. Sudden storms come down from the hills. Its fishermen became his first followers.'},
+  {id:'magdala', name:'Magdala', alt:'Migdal · “tower”', lat:32.825, lon:35.516, refs:['Luke 8:1–3','John 20:1–18'], text:'A busy fish-salting town on the western shore and the home of Miryam of Magdala, who followed him to the cross and was the first to find the tomb empty.'},
+  {id:'bethsaida', name:'Bethsaida', alt:'Beit Tzaida · “house of fishing”', lat:32.910, lon:35.630, refs:['John 1:44','Luke 9:10–17','Mark 8:22–26'], text:'Hometown of Philip, Andrew and Shimon, at the north end of the lake. Near here thousands were fed from a few loaves and fish.'},
+  {id:'caesarea', name:'Caesarea Philippi', alt:'Banias · at the foot of Mount Hermon', lat:33.248, lon:35.694, refs:['Matthew 16:13–20','Mark 8:27–30'], text:'A pagan city by the springs of the Jordan, with a shrine to the god Pan cut into the cliff. Here he asked his friends, “Who do you say I am?”'},
+  {id:'sychar', name:'Sychar', alt:'Jacob’s well · Samaria', lat:32.209, lon:35.285, refs:['John 4:1–42'], text:'In Samaria, a region most Jews avoided, he sat at Jacob’s well at noon and talked with a Samaritan woman who had come for water.'},
+  {id:'jericho', name:'Jericho', alt:'Yericho · the city of palms', lat:31.871, lon:35.444, refs:['Luke 18:35–43','Luke 19:1–10'], text:'An oasis city in the Jordan valley on the pilgrim road up to Yerushalem. A blind beggar called out to him here, and the tax collector Zacchaeus climbed a tree to see him.'},
+  {id:'bethany', name:'Bethany', alt:'Beit Anya · Mount of Olives', lat:31.771, lon:35.262, refs:['John 11','John 12:1–8','Mark 14:3–9'], text:'A village just over the Mount of Olives from the city, home of Martha, Mary and Lazarus. He stayed here in his last week.'},
+  {id:'jerusalem', name:'Yerushalem', alt:'Jerusalem · the city of the temple', lat:31.778, lon:35.235, refs:['Mark 11–16','John 18–20'], text:'The holy city, its temple rebuilt on a vast scale by Herod and its streets full of pilgrims at Passover. Here he was arrested, tried before Pilate, crucified and buried.'},
+  {id:'emmaus', name:'The road west', alt:'Towards Emmaus · location debated', lat:31.839, lon:35.020, refs:['Luke 24:13–35'], text:'Three days after the execution, two companions walked west out of the city at sunset and a stranger joined them on the road. The book’s prologue begins on this road.'}
+];
+const BOX = {lon0:34.20, lon1:36.05, lat0:31.15, lat1:33.42};
+const W = 600, H = 760;
+const proj = (lat, lon) => [ (lon - BOX.lon0) / (BOX.lon1 - BOX.lon0) * W, (BOX.lat1 - lat) / (BOX.lat1 - BOX.lat0) * H ];
+const path = pts => pts.map((p,i) => (i?'L':'M') + proj(p[0],p[1]).map(v=>v.toFixed(1)).join(' ')).join(' ');
+const coast = [[33.42,35.24],[33.27,35.20],[33.09,35.10],[32.93,35.07],[32.83,34.98],[32.70,34.94],[32.50,34.89],[32.30,34.84],[32.05,34.75],[31.80,34.64],[31.67,34.56],[31.50,34.45],[31.30,34.28],[31.15,34.20]];
+const sea = coast.concat([[31.15,34.20],[31.15,34.20]]);
+const kinneret = [[32.885,35.555],[32.895,35.585],[32.880,35.625],[32.845,35.648],[32.790,35.650],[32.740,35.625],[32.705,35.590],[32.720,35.555],[32.770,35.525],[32.830,35.515],[32.870,35.530]];
+const deadsea = [[31.775,35.475],[31.770,35.555],[31.700,35.575],[31.600,35.585],[31.480,35.580],[31.350,35.560],[31.200,35.545],[31.150,35.540],[31.150,35.395],[31.300,35.395],[31.450,35.420],[31.600,35.440],[31.720,35.455]];
+const jordanUp = [[33.25,35.64],[33.15,35.62],[33.05,35.61],[32.95,35.62],[32.895,35.60]];
+const jordanLow = [[32.705,35.575],[32.600,35.565],[32.450,35.555],[32.300,35.545],[32.150,35.530],[32.000,35.515],[31.900,35.530],[31.775,35.555]];
+const regions = [['GALILEE',32.95,35.25],['SAMARIA',32.25,35.10],['JUDEA',31.55,34.98],['DECAPOLIS',32.55,35.80],['PERAEA',31.95,35.78],['Mediterranean Sea',32.30,34.42]];
+function drawMap(){
+  const svg = $('#map');
+  const bg = getComputedStyle(document.documentElement);
+  let s = `<defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ece4d4" stroke-opacity=".05"/></pattern></defs>
+  <rect width="${W}" height="${H}" fill="#211e19"/><rect width="${W}" height="${H}" fill="url(#grid)"/>
+  <path d="${path(coast)} L 0 ${H} L 0 0 Z" fill="#1a2a2e"/>
+  <path d="${path(coast)}" fill="none" stroke="#c9a45c" stroke-opacity=".55" stroke-width="1.2"/>
+  <path d="${path(kinneret)} Z" fill="#1a2a2e" stroke="#c9a45c" stroke-opacity=".7" stroke-width="1.2"/>
+  <path d="${path(deadsea)} Z" fill="#1a2a2e" stroke="#c9a45c" stroke-opacity=".55" stroke-width="1.2"/>
+  <path d="${path(jordanUp)}" fill="none" stroke="#6f8f96" stroke-width="1.6"/>
+  <path d="${path(jordanLow)}" fill="none" stroke="#6f8f96" stroke-width="1.6"/>`;
+  regions.forEach(r => { const [x,y] = proj(r[1],r[2]); s += `<text x="${x.toFixed(0)}" y="${y.toFixed(0)}" font-family="DM Mono, monospace" font-size="${r[0].length>12?12:13}" letter-spacing="${r[0].length>12?1:4}" fill="#ece4d4" fill-opacity=".28" text-anchor="middle">${r[0]}</text>`; });
+  const [jx,jy] = proj(32.25,35.58); s += `<text x="${jx}" y="${jy}" font-family="DM Mono, monospace" font-size="10" fill="#6f8f96" transform="rotate(-84 ${jx} ${jy})" text-anchor="middle">JORDAN</text>`;
+  const [dx,dy] = proj(31.45,35.50); s += `<text x="${dx}" y="${dy}" font-family="DM Mono, monospace" font-size="10" fill="#6f8f96" text-anchor="middle" transform="rotate(-80 ${dx} ${dy})">DEAD SEA</text>`;
+  const offs = {bethany:[10,14], jerusalem:[10,-10], caesarea:[-12,4,'end'], bethlehem:[-12,6,'end'], magdala:[-12,4,'end'], galilee:[16,24], bethsaida:[12,-8], capernaum:[-12,-10,'end'], emmaus:[-12,-8,'end'], cana:[12,-4], nazareth:[-12,10,'end'], jericho:[12,-6], jordan:[12,14]};
+  PLACES.forEach((p,i) => {
+    const [x,y] = proj(p.lat,p.lon); const o = offs[p.id] || [12,4];
+    s += `<g class="pin" tabindex="0" role="button" aria-label="${p.name}" data-i="${i}"><circle class="halo" cx="${x}" cy="${y}" r="16"/><circle class="dot" cx="${x}" cy="${y}" r="6"/><text x="${x+o[0]}" y="${y+o[1]}" text-anchor="${o[2]||'start'}">${p.name.toUpperCase()}</text></g>`;
+  });
+  s += `<text x="${W-16}" y="${H-16}" font-family="DM Mono, monospace" font-size="10" fill="#ece4d4" fill-opacity=".35" text-anchor="end">SCHEMATIC · 1st CENTURY AD</text>`;
+  svg.innerHTML = s;
+  svg.querySelectorAll('.pin').forEach(g => {
+    g.addEventListener('click', () => pickPlace(+g.dataset.i));
+    g.addEventListener('keydown', e => { if (e.key==='Enter' || e.key===' '){ e.preventDefault(); pickPlace(+g.dataset.i); } });
+  });
+}
+const fmt = (v, pos, neg) => { const a = Math.abs(v), d = Math.floor(a), m = Math.round((a-d)*60); return `${d}°${String(m).padStart(2,'0')}′${v>=0?pos:neg}`; };
+function pickPlace(i, fromTl){
+  const p = PLACES[i];
+  document.querySelectorAll('.pin').forEach(g => g.classList.toggle('on', +g.dataset.i === i));
+  $('#placeCard').innerHTML = `<p class="alt">${p.alt}</p><h3>${p.name}</h3><p>${p.text}</p><div class="refs">${p.refs.map(r=>`<span>${r}</span>`).join('')}</div><p class="coord">${fmt(p.lat,'N','S')} ${fmt(p.lon,'E','W')}</p>`;
+  if (!fromTl) document.querySelectorAll('.tl-item').forEach(t => t.classList.toggle('on', t.dataset.p === p.id));
+}
+const TL = [
+  ['c. 6–4 BC','The birth','bethlehem'],['c. AD 6–27','The hidden years','nazareth'],['c. AD 28','Baptism in the Jordan','jordan'],['c. AD 28','Water into wine','cana'],
+  ['c. AD 28–30','A base by the lake','capernaum'],['c. AD 29','The storm on the lake','galilee'],['c. AD 29','Five thousand fed','bethsaida'],['c. AD 29','At the well','sychar'],
+  ['c. AD 30–32','“Who do you say I am?”','caesarea'],['Final spring','Zacchaeus','jericho'],['Final spring','Lazarus','bethany'],['Passover, c. AD 33','Arrest and execution','jerusalem'],
+  ['Three days later','The road west','emmaus']
+];
+function drawTl(){
+  $('#tl').innerHTML = TL.map(t => `<button class="tl-item" role="listitem" data-p="${t[2]}"><span class="d">${t[0]}</span><span class="t">${t[1]}</span><span class="w">${PLACES.find(p=>p.id===t[2]).name}</span></button>`).join('');
+  $('#tl').querySelectorAll('.tl-item').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tl-item').forEach(x => x.classList.toggle('on', x === b));
+    pickPlace(PLACES.findIndex(p => p.id === b.dataset.p), true);
+  }));
+}
+drawMap(); drawTl(); pickPlace(PLACES.findIndex(p=>p.id==='capernaum'));
+
+/* people */
+const PEOPLE = [
+  ['Yeshua','Jesus of Nazareth','A builder from Galilee who became a teacher, healer and, to his followers, the Messiah. His name means “he who saves”.','Mark 6:3 · Matthew 1:21'],
+  ['Miryam','Mary, his mother','A young woman from Nazareth. She was there at the beginning, at the wedding in Cana and at the foot of the cross.','Luke 1–2 · John 19:25–27'],
+  ['Shimon Kefa','Peter, the fisherman','Impulsive, loyal and the first to name him Messiah. He also denied him three times on the night of the arrest.','Mark 1:16–18 · Mark 14:66–72'],
+  ['Yohanan','John, son of Zebedee','A fisherman called with his brother James. The Gospel of John places him closest to Yeshua at the last supper and at the cross.','Mark 1:19–20 · John 19:26'],
+  ['Miryam of Magdala','Mary Magdalene','Freed from seven demons, she followed him from Galilee, stayed at the cross and was the first to see the empty tomb.','Luke 8:2 · John 20:1–18'],
+  ['Mattityahu','Matthew, the tax collector','A collector of taxes for Rome, despised by his own people, who left his booth when Yeshua said “Follow me”.','Matthew 9:9–13'],
+  ['Toma','Thomas, the twin','Ready to die with him on the road to Bethany, yet unwilling to believe the resurrection until he could touch the wounds.','John 11:16 · John 20:24–29'],
+  ['Pontius Pilate','The Roman governor','Prefect of Judea from AD 26 to 36. He found no case against Yeshua, then handed him over to be crucified.','Mark 15:1–15 · John 18:28–19:16']
+];
+$('#people-grid').innerHTML = PEOPLE.map(p => `<button class="person" aria-label="${p[0]}, ${p[1]}. Turn card"><div class="in"><div class="face front"><span class="heb">${p[1]}</span><h3>${p[0]}</h3><span class="role">Tap to read more</span></div><div class="face back"><p>${p[2]}</p><span class="ref">${p[3]}</span></div></div></button>`).join('');
+document.querySelectorAll('.person').forEach(b => b.addEventListener('click', () => b.classList.toggle('flip')));
+
+/* wholesale */
+const TIERS = [[1,1,11.99],[2,9,10.99],[10,49,9.99],[50,99,7.99],[100,Infinity,7.50]];
+const RRP = 14.99;
+const gbp = v => '£' + v.toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});
+$('#tiers tbody').innerHTML = TIERS.map((t,i) => `<tr data-i="${i}"><td>${t[1]===Infinity ? t[0]+'+ copies' : t[0]===t[1] ? '1 copy' : t[0]+'–'+t[1]+' copies'}</td><td>${gbp(t[2])}</td></tr>`).join('');
+function calc(q){
+  q = Math.max(1, Math.min(5000, Math.round(q || 1)));
+  const ti = TIERS.findIndex(t => q >= t[0] && q <= t[1]); const each = TIERS[ti][2];
+  $('#qtyIn').value = q; $('#qtyRange').value = Math.min(q, 250);
+  $('#oEach').textContent = gbp(each); $('#oTotal').textContent = gbp(each*q); $('#oSave').textContent = gbp((RRP-each)*q);
+  document.querySelectorAll('#tiers tbody tr').forEach(r => r.classList.toggle('on', +r.dataset.i === ti));
+}
+$('#qtyIn').addEventListener('input', e => calc(+e.target.value));
+$('#qtyRange').addEventListener('input', e => calc(+e.target.value));
+$('#qMinus').addEventListener('click', () => calc(+$('#qtyIn').value - 1));
+$('#qPlus').addEventListener('click', () => calc(+$('#qtyIn').value + 1));
+calc(50);
+$('#wsForm').addEventListener('submit', e => { e.preventDefault(); $('#wsSent').hidden = false; });
+$('#newsForm').addEventListener('submit', e => { e.preventDefault(); $('#newsSent').hidden = false; });
+
+/* companion (Claude, via the viewer's own account) */
+const RULES = `You are the reading companion on the website for "The Greatest Story Ever Told: An Eyewitness Account" by Bear Grylls (Hodder & Stoughton). The book retells the life of Jesus (Yeshua) through eyewitness voices and uses Hebrew and Aramaic name forms such as Yeshua and Yerushalem. Its prologue is set on the road west out of Yerushalem, c. AD 33, three days after the execution.
+Your job: answer readers' questions about the people, places, customs, politics and history of first-century Galilee and Judea, and about what the Gospel accounts say, so they can read the book with the background in mind.
+Rules: Be warm, clear and concise (under 180 words unless asked for more). Use plain prose, no markdown headings or bullet lists unless the reader asks. Cite Gospel passages by book and chapter where useful. Where historians disagree, say so briefly. Treat faith respectfully and do not argue anyone into or out of belief. Never invent quotations, events or opinions for Bear Grylls, and never claim to know what the book says beyond the prologue described above; if asked about the book's contents, say you can only speak to the history and the Gospels. Politely steer unrelated requests back to the story.`;
+let turns = []; let ctl = null;
+const log = $('#log');
+const bubble = (cls, text) => { const d = document.createElement('div'); d.className = 'msg ' + cls; d.textContent = text; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; };
+const COPY = {rate_limited:'Too many questions at once. Give it a moment and ask again.', session_expired:'Please sign in again to keep asking.', refused:'I can’t help with that one. Try asking about the history or the places in the story.', empty_completion:'I didn’t find an answer to that. Try asking it another way.', upstream_error:'The answer was interrupted. Ask again when you’re ready.', prompt_too_large:'That conversation got long. Clear it by reloading the page and ask again.'};
+function companionOff(){
+  $('#chat').innerHTML = `<div class="comp-off"><p class="eyebrow" style="color:var(--gold)">Companion</p><p style="margin-top:12px">The live reading companion is coming soon. It will answer questions about the people, places and history behind the story.</p></div>`;
+}
+(async () => {
+  let sample = null;
+  try { sample = window.claude ? await window.claude.use('sample') : null; } catch(e) { sample = null; }
+  if (!sample) { companionOff(); return; }
+  async function ask(q){
+    q = q.trim(); if (!q) return;
+    bubble('me', q); $('#askInput').value = ''; $('#suggest').hidden = true;
+    turns.push({role:'user', content:q});
+    if (turns.length > 12) turns = turns.slice(-12);
+    if (turns[0].role !== 'user') turns.shift();
+    const out = bubble('it wait', 'Thinking…');
+    $('#askBtn').disabled = true;
+    ctl = new AbortController();
+    try {
+      const {text} = await sample([{role:'user', content:RULES}, ...turns], {cache:false, signal:ctl.signal, onText:({text}) => { out.classList.remove('wait'); out.textContent = text; log.scrollTop = log.scrollHeight; }});
+      out.classList.remove('wait'); out.textContent = text;
+      turns.push({role:'assistant', content:text});
+    } catch(e) {
+      if (['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'].includes(e.code)) { companionOff(); return; }
+      out.classList.remove('wait');
+      out.textContent = e.text ? e.text + '\n\n' + (COPY[e.code] || COPY.upstream_error) : (COPY[e.code] || COPY.upstream_error);
+      turns.pop();
+    } finally { $('#askBtn').disabled = false; }
+  }
+  $('#askForm').addEventListener('submit', e => { e.preventDefault(); ask($('#askInput').value); });
+  document.querySelectorAll('#suggest button').forEach(b => b.addEventListener('click', () => ask(b.textContent)));
+})();
+</script>
+
+</body>
+</html>
